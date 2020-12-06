@@ -15,7 +15,7 @@ namespace DroppedRotation
 
 			RotationStorage storage;
 			if (DroppedRotation.rotations[whoAmI].itemType != item.type)
-				storage = new RotationStorage(Main.rand.NextFloat(.8f, .1f), y: Main.rand.NextFloat(0f, .4f), type: item.type);
+				storage = new RotationStorage(Main.rand.NextFloat(.8f, .1f), type: item.type);
 			else
 				storage = DroppedRotation.rotations[whoAmI];
 
