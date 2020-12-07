@@ -40,6 +40,16 @@ namespace DroppedRotation
 			spriteBatch.Draw(texture, position, null, alphaColor, rotation, texture.Size() * 0.5f, 
 								modifiedScale, storage.X > 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
 
+			// Depth, AKA 3D mode
+			if (DroppedRotation.depthEnabled)
+			{
+				for (int i = 1; i <= DroppedRotation.depthLayers; i++)
+				{
+					spriteBatch.Draw(texture, position + new Vector2(i, 0), null, alphaColor, rotation, texture.Size() * 0.5f,
+									modifiedScale, storage.X > 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
+				}
+			}
+
 			DroppedRotation.rotations[whoAmI] = storage;
 			return false;
 		}

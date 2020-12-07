@@ -29,12 +29,26 @@ namespace DroppedRotation
 		[Label("Vertical speed")]
 		public float VerticalIncrease;
 
+		[DefaultValue(false)]
+		[Header("[Experimental] \"3D\" Items")]
+		[Label("Add depth to dropped items")]
+		public bool DepthEnabled;
+
+		[Range(1, 4)]
+		[Increment(1)]
+		[DefaultValue(1)]
+		[Label("Depth amount for dropped items")]
+		[DrawTicks]
+		public int DepthLayers;
+
 		public override void OnChanged()
 		{
 			DroppedRotation.rotationEnabled = RotationEnabled;
 			DroppedRotation.rotationIncrease = RotationIncrease;
 			DroppedRotation.verticalEnabled = VerticalEnabled;
 			DroppedRotation.verticalIncrease = VerticalIncrease;
+			DroppedRotation.depthEnabled = DepthEnabled;
+			DroppedRotation.depthLayers = DepthLayers;
 		}
 	}
 }

@@ -5,10 +5,16 @@ namespace DroppedRotation
 	public class DroppedRotation : Mod
 	{
 		public static RotationStorage[] rotations;
+
 		public static bool rotationEnabled;
 		public static float rotationIncrease;
+
 		public static bool verticalEnabled;
 		public static float verticalIncrease;
+
+		public static bool depthEnabled;
+		public static int depthLayers;
+
 
 		public override void Load()
 		{
@@ -17,6 +23,8 @@ namespace DroppedRotation
 			rotationIncrease = ModContent.GetInstance<DroppedConfig>().RotationIncrease;
 			verticalEnabled = ModContent.GetInstance<DroppedConfig>().VerticalEnabled;
 			verticalIncrease = ModContent.GetInstance<DroppedConfig>().VerticalIncrease;
+			depthEnabled = ModContent.GetInstance<DroppedConfig>().DepthEnabled;
+			depthLayers = ModContent.GetInstance<DroppedConfig>().DepthLayers;
 		}
 
 		public override void Unload()
