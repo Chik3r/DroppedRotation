@@ -19,11 +19,23 @@ namespace DroppedRotation
 			else
 				storage = DroppedRotation.rotations[whoAmI];
 
-			// Horizontal movement
-			storage.XIncrease = storage.X > .9 ? false : (storage.X < -.9 ? true : storage.XIncrease);
-			storage.X += storage.XIncrease ? DroppedRotation.rotationIncrease : -DroppedRotation.rotationIncrease;
+			// Vertical movement
+			if (DroppedRotation.verticalEnabled)
+			{
+				storage.YIncrease = storage.Y > 1.5 ? false : (storage.Y < -2.5 ? true : storage.YIncrease);
+				storage.Y += storage.YIncrease ? 0.05f : -0.05f;
+				position += new Vector2(0, storage.Y);
+			}
 
-			Vector2 modifiedScale = new Vector2((scale * MathHelper.Clamp(Math.Abs(storage.X), 0f, 1f)), scale);
+			// Horizontal movement
+			Vector2 modifiedScale = new Vector2(1f, 1f);
+			if (DroppedRotation.rotationEnabled)
+			{
+				storage.XIncrease = storage.X > .9 ? false : (storage.X < -.9 ? true : storage.XIncrease);
+				storage.X += storage.XIncrease ? DroppedRotation.rotationIncrease : -DroppedRotation.rotationIncrease;
+
+				modifiedScale = new Vector2((scale * MathHelper.Clamp(Math.Abs(storage.X), 0f, 1f)), scale);
+			}
 
 			spriteBatch.Draw(texture, position, null, alphaColor, rotation, texture.Size() * 0.5f, 
 								modifiedScale, storage.X > 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);

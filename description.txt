@@ -1,1 +1,2 @@
 Dropped Item Rotation is a mod that adds movement to dropped items.
+Currently, it adds rotation and vertical movement to dropped items.
