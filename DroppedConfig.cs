@@ -10,6 +10,7 @@ namespace DroppedRotation
 		[Range(0.01f, 0.2f)]
 		[Increment(0.01f)]
 		[DefaultValue(0.09f)]
+		[Label("Rotation Speed")]
 		public float RotationIncrease;
 
 		public override void OnChanged()

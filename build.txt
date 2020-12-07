@@ -1,3 +1,5 @@
 displayName = Dropped Item Rotation
 author = Chik3r
-version = 0.1
+version = 0.1.1
+side = Client
+homepage = https://github.com/Chik3r/DroppedRotation
