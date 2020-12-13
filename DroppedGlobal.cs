@@ -10,6 +10,9 @@ namespace DroppedRotation
 	{
 		public override bool PreDrawInWorld(Item item, SpriteBatch spriteBatch, Color lightColor, Color alphaColor, ref float rotation, ref float scale, int whoAmI)
 		{
+			if (item.type >= Main.itemTexture.Length) // IOOB check
+				return true;
+
 			Texture2D texture = Main.itemTexture[item.type];
 			Vector2 position = item.position - Main.screenPosition + new Vector2(item.width / 2, item.height - texture.Height * 0.5f + 2f);
 
